@@ -16,7 +16,7 @@
 	  <spring.security.version>4.0.4.RELEASE</spring.security.version>
 	  <hibernate.version>4.3.5.Final</hibernate.version>
 	  <mysql.connector>5.1.34</mysql.connector>
-	  <commons.validator>1.5.0</commons.validator>
+	  <commons.validator>1.4.0</commons.validator>
 	  <log4j.version>1.2.17</log4j.version>
 	  <jdk.version>1.8</jdk.version>
 	  <jstl>1.2</jstl>
@@ -118,13 +118,19 @@
             <artifactId>hibernate-c3p0</artifactId>
             <version>${hibernate.version}</version>
         </dependency>
- 
         <!-- MySQL JDBC driver -->
         <!-- http://mvnrepository.com/artifact/mysql/mysql-connector-java -->
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <version>${mysql.connector}</version>
+        </dependency>
+        <!-- Email validator -->
+        <!-- http://mvnrepository.com/artifact/commons-validator/commons-validator -->
+        <dependency>
+            <groupId>commons-validator</groupId>
+            <artifactId>commons-validator</artifactId>
+            <version>${commons.validator}</version>
         </dependency>
   </dependencies>
   
