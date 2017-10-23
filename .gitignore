@@ -47,3 +47,4 @@ Temporary Items
 # project build
 OnlineShoppingPortal/target/*
 spring-mvc-oauth2/target/*
+spring-security-mvc-oauth2-google/target/*
