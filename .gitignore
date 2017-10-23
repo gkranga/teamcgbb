@@ -44,3 +44,6 @@ Temporary Items
 
 .vscode
 
+# project build
+OnlineShoppingPortal/target/*
+spring-mvc-oauth2/target/*
