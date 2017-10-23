@@ -15,56 +15,62 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @Configuration
 @EnableWebSecurity
-public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
- 
-	   public static Logger logger = Logger.getLogger(WebSecurityConfig.class);
-	   
-	   @Autowired
-	   MyDBAuthenticationService myDBAauthenticationService;
-	 
-	   @Autowired
-	   public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-	       auth.userDetailsService(myDBAauthenticationService).passwordEncoder(bCryptPasswordEncoder());
-	 
-	   }
-	   @Bean
-	   public BCryptPasswordEncoder bCryptPasswordEncoder() {
-	        return new BCryptPasswordEncoder();
-	    }
-	 
-	    @Autowired
-	    @Override
-	    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-	        auth.userDetailsService(myDBAauthenticationService).passwordEncoder(bCryptPasswordEncoder());
-	    }
-	 
-	   @Override
-	   protected void configure(HttpSecurity http) throws Exception {
-	 
-	       http.csrf().disable();
-	 
-	       http.authorizeRequests().antMatchers("/orderList","/buyProduct")
-	               .access("hasAnyRole('ROLE_USER', 'ROLE_ADMIN')");
-	 
-	       http.authorizeRequests().and().exceptionHandling().accessDeniedPage("/403");
-	 
-	       http.authorizeRequests().and().formLogin()
+public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
+
+	public static Logger logger = Logger.getLogger(WebSecurityConfig.class);
+
+	@Autowired
+	MyDBAuthenticationService myDBAauthenticationService;
+
+	@Autowired
+	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
+		auth.userDetailsService(myDBAauthenticationService).passwordEncoder(bCryptPasswordEncoder());
+
+	}
+
+	@Bean
+	public BCryptPasswordEncoder bCryptPasswordEncoder() {
+		return new BCryptPasswordEncoder();
+	}
+
+	@Autowired
+	@Override
+	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+		auth.userDetailsService(myDBAauthenticationService).passwordEncoder(bCryptPasswordEncoder());
+	}
+
+	@Override
+	protected void configure(HttpSecurity http) throws Exception {
+
+		http.csrf().disable();
+
+		// @formatter:off
+		http.authorizeRequests()
+			.antMatchers("/orderList","/buyProduct")
+				.access("hasAnyRole('ROLE_USER', 'ROLE_ADMIN')")
+			.and()
+				.exceptionHandling().accessDeniedPage("/403")
+			.and()
+				.formLogin()
 	               .loginProcessingUrl("/j_spring_security_check") 
 	               .loginPage("/login")
 	               .defaultSuccessUrl("/")
 	               .failureUrl("/login?error=true")
 	               .usernameParameter("userName")
 	               .passwordParameter("password")
-	               .and().logout().logoutUrl("/logout").logoutSuccessUrl("/");
+			.and()
+				.logout()
+					.logoutUrl("/logout")
+					.logoutSuccessUrl("/");
+		// @formatter:on
 	       
-	       if(logger.isInfoEnabled())
-	        	logger.info("Web security configured");
-	 
-	   }
-	   
-	   @Bean(name = BeanIds.AUTHENTICATION_MANAGER)
-	   @Override
-	   public AuthenticationManager authenticationManagerBean() throws Exception {
-	       return super.authenticationManagerBean();
-	   }
+	    if(logger.isInfoEnabled())
+	        logger.info("Web security configured");
+	}
+
+	@Bean(name = BeanIds.AUTHENTICATION_MANAGER)
+	@Override
+	public AuthenticationManager authenticationManagerBean() throws Exception {
+		return super.authenticationManagerBean();
+	}
 }
