@@ -1,16 +1,16 @@
 package com.microsoft.azure.gbb.security;
 
-import org.springframework.beans.factory.annotation.Autowired;
+//import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.client.ClientHttpRequest;
 import org.springframework.security.oauth2.client.DefaultOAuth2RequestAuthenticator;
 import org.springframework.security.oauth2.client.OAuth2ClientContext;
 import org.springframework.security.oauth2.client.resource.OAuth2ProtectedResourceDetails;
-import org.springframework.web.client.RestTemplate;
+//import org.springframework.web.client.RestTemplate;
 
 public class AzureADOauth2RequestAuthenticator extends DefaultOAuth2RequestAuthenticator {
 
-    @Autowired
-    private RestTemplate restTemplate;
+    //@Autowired
+    //private RestTemplate restTemplate;
 
     @Override
     public void authenticate(OAuth2ProtectedResourceDetails resource,
