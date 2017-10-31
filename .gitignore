@@ -49,4 +49,5 @@ OnlineShoppingPortal/target/*
 spring-mvc-oauth2/target/*
 spring-security-mvc-oauth2-google/target/*
 spring-boot-security-oauth2-azuread/target/*
+OnlineShoppingPortal/container/OnlineShoppingPortal.war
 
