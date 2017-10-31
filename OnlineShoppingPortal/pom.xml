@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
@@ -91,6 +92,70 @@
 	     </dependency>
      
       	<!-- Spring dependencies -->
+=======
+<project 
+    xmlns="http://maven.apache.org/POM/4.0.0" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.onlineshoppingportal</groupId>
+    <artifactId>OnlineShoppingPortal</artifactId>
+    <packaging>war</packaging>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>OnlineShoppingPortal Java Spring Webapp</name>
+    <url>http://maven.apache.org</url>
+
+    <properties>
+        <java.version>1.8</java.version>
+        <failOnMissingWebXml>false</failOnMissingWebXml>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <apache.commons.validator>1.5.1</apache.commons.validator> <!-- newest is 1.6 -->
+        <hibernate.version>4.3.5.Final</hibernate.version>  <!-- newest of 4.x is 4.3.11.Final -->
+        <log4j.version>1.2.17</log4j.version>
+        <javax.servlet.version>3.1.0</javax.servlet.version>
+        <javax.servlet.jsp.version>2.2</javax.servlet.jsp.version>
+        <javax.servlet.jsp.jstl.version>1.2</javax.servlet.jsp.jstl.version>
+        <mysql.connector.version>5.1.44</mysql.connector.version>
+        <spring.version>4.2.5.RELEASE</spring.version>
+        <spring.security.version>4.0.4.RELEASE</spring.security.version>
+    </properties>
+    
+    <dependencies>
+        <!-- Servlet/JSP dependencies -->
+        <!-- http://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>${javax.servlet.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <!-- http://mvnrepository.com/artifact/javax.servlet.jsp/jsp-api -->
+        <dependency>
+            <groupId>javax.servlet.jsp</groupId>
+            <artifactId>jsp-api</artifactId>
+            <version>${javax.servlet.jsp.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <!-- http://mvnrepository.com/artifact/javax.servlet.jsp.jstl/jstl -->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>jstl</artifactId>
+            <version>${javax.servlet.jsp.jstl.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <!-- Servlet/JSP dependencies -->
+        <!-- Log4j dependencies -->
+        <!-- http://mvnrepository.com/artifact/log4j/log4j -->
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>${log4j.version}</version>
+        </dependency>
+        <!-- Log4j dependencies -->
+        <!-- Spring dependencies -->
+>>>>>>> shigeyf
         <!-- http://mvnrepository.com/artifact/org.springframework/spring-core -->
         <dependency>
             <groupId>org.springframework</groupId>
@@ -118,8 +183,13 @@
             <artifactId>spring-orm</artifactId>
             <version>${spring.version}</version>
         </dependency>
+<<<<<<< HEAD
  
         <!-- Spring Security Artifacts - START -->
+=======
+        <!-- Spring dependencies -->
+        <!-- Spring Security dependencies -->
+>>>>>>> shigeyf
         <!-- http://mvnrepository.com/artifact/org.springframework.security/spring-security-web -->
         <dependency>
             <groupId>org.springframework.security</groupId>
@@ -140,48 +210,60 @@
             <artifactId>spring-security-taglibs</artifactId>
             <version>${spring.security.version}</version>
         </dependency>
+<<<<<<< HEAD
          
         <!-- Spring Security Artifacts - END -->
         
         
         <!-- Hibernate -->
+=======
+        <!-- Spring Security dependencies -->
+        <!-- Hibernate dependencies -->
+>>>>>>> shigeyf
         <!-- http://mvnrepository.com/artifact/org.hibernate/hibernate-core -->
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-core</artifactId>
             <version>${hibernate.version}</version>
         </dependency>
- 
         <!-- http://mvnrepository.com/artifact/org.hibernate/hibernate-entitymanager -->
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-entitymanager</artifactId>
             <version>${hibernate.version}</version>
         </dependency>
- 
- 
         <!-- http://mvnrepository.com/artifact/org.hibernate/hibernate-c3p0 -->
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-c3p0</artifactId>
             <version>${hibernate.version}</version>
         </dependency>
+<<<<<<< HEAD
  
+=======
+        <!-- Hibernate dependencies -->
+>>>>>>> shigeyf
         <!-- MySQL JDBC driver -->
         <!-- http://mvnrepository.com/artifact/mysql/mysql-connector-java -->
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-            <version>${mysql.connector}</version>
+            <version>${mysql.connector.version}</version>
         </dependency>
+<<<<<<< HEAD
         
      	<!-- Email validator,... -->
+=======
+        <!-- MySQL JDBC driver -->
+        <!-- Apache Common Validator -->
+>>>>>>> shigeyf
         <!-- http://mvnrepository.com/artifact/commons-validator/commons-validator -->
         <dependency>
             <groupId>commons-validator</groupId>
             <artifactId>commons-validator</artifactId>
-            <version>${commons.validator}</version>
+            <version>${apache.commons.validator}</version>
         </dependency>
+<<<<<<< HEAD
         
   </dependencies>
   <build>
@@ -218,6 +300,34 @@
 				</configuration>
 			</plugin>
             
+=======
+        <!-- Apache Common Validator -->
+    </dependencies>
+
+    <build>
+        <finalName>OnlineShoppingPortal</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.eclipse.jetty</groupId>
+                <artifactId>jetty-maven-plugin</artifactId>
+                <version>9.3.9.v20160517</version>
+                <configuration>
+                    <webApp>
+                        <contextPath>/</contextPath>
+                        <!-- <contextPath>/${project.artifactId}</contextPath> -->
+                    </webApp>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.5</version>
+                <configuration>
+                    <source>${maven.compiler.source}</source>
+                    <target>${maven.compiler.target}</target>
+                </configuration>
+            </plugin>
+>>>>>>> shigeyf
         </plugins>
-  </build>
+    </build>
 </project>
