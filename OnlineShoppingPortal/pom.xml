@@ -169,7 +169,7 @@
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-            <version>${mysql.connector.version}</version>
+            <version>${mysql.connector}</version>
         </dependency>
         
      	<!-- Email validator,... -->
@@ -177,7 +177,7 @@
         <dependency>
             <groupId>commons-validator</groupId>
             <artifactId>commons-validator</artifactId>
-            <version>${apache.commons.validator}</version>
+            <version>${commons.validator}</version>
         </dependency>
         
   </dependencies>
