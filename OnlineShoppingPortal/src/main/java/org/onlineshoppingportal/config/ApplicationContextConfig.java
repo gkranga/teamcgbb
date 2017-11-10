@@ -55,9 +55,12 @@ public class ApplicationContextConfig{
  
         // See: ds-hibernate-cfg.properties
         dataSource.setDriverClassName(env.getProperty("ds.database-driver"));
-        dataSource.setUrl(env.getProperty("ds.url"));
-        dataSource.setUsername(env.getProperty("ds.username"));
-        dataSource.setPassword(env.getProperty("ds.password"));
+        //dataSource.setUrl(env.getProperty("ds.url"));
+        dataSource.setUrl(env.getProperty("URL"));
+        //dataSource.setUsername(env.getProperty("ds.username"));
+        dataSource.setUsername(env.getProperty("SECRET_USERNAME"));
+        //dataSource.setPassword(env.getProperty("ds.password"));
+        dataSource.setPassword(env.getProperty("SECRET_PASSWORD"));
         if(logger.isInfoEnabled())
         	logger.info("Datasource configured for url "+dataSource.getUrl());
         return dataSource;

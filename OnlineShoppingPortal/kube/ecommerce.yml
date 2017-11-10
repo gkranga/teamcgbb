@@ -1,0 +1,33 @@
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: ecommerce-pod
+  labels: 
+    app: ecommerce
+spec:
+      containers:
+        - name: ecommerce-container
+          image: index.docker.io/gkranga/ecommerce:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
+          env:
+          - name: SECRET_USERNAME
+            valueFrom:
+              secretKeyRef:
+                name: mysecret
+                key: username
+          - name: SECRET_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: mysecret
+                key: password
+          - name: URL
+            valueFrom:
+              secretKeyRef:
+                name: mysecret
+                key: url
+      imagePullSecrets:
+        - name: myregistrykey
+      restartPolicy: Never
